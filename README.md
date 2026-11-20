@@ -1,14 +1,14 @@
 # Gradient Lab
 
-**A visual-first workspace for discovering, creating, and customizing gradients — without needing to write code.**
+**A visual-first Windows desktop workspace for discovering, creating, and customizing gradients — without needing to write code.**
 
-Gradient Lab aims to make sophisticated gradient creation accessible to people who may not know CSS, Tailwind CSS, or the technical details behind visual effects. Users should be able to focus on the appearance they want while the Lab handles the underlying implementation.
+Gradient Lab aims to make sophisticated gradient creation approachable. Users should be able to focus on the appearance they want while the Lab handles the underlying rendering and export details.
 
 ## Why Gradient Lab?
 
-Creating a particular gradient can be difficult when you do not know which gradient techniques, layers, blend effects, textures, or tools are needed to achieve it.
+Creating a particular gradient can be difficult when you do not know which techniques, layers, blend effects, textures, or tools are needed to achieve it.
 
-Gradient Lab brings those capabilities into an understandable creative workspace. Users can explore visual templates, adjust clear controls, experiment with combinations, and create original compositions instead of having to write styling code for every design.
+Gradient Lab brings those capabilities into an understandable creative workspace. Users can explore visual templates, adjust clear controls, experiment with combinations, and create original compositions.
 
 The goal is not to hide creative control. It is to make that control approachable.
 
@@ -45,98 +45,54 @@ Templates should be editable starting points, not locked designs. Users should b
 
 ### Customize visually
 
-Users should be able to work with understandable controls for:
+Potential controls include:
 
 - **Colors** — choose, replace, and combine colors.
 - **Color placement** — move and resize color fields or points.
 - **Layers** — add, remove, duplicate, reorder, and adjust layers.
-- **Blending** — try effects such as Normal, Soft Light, Hard Light, Multiply, Screen, Overlay, and Color Dodge, with a clear explanation of each.
+- **Blending** — explore blend modes and understand their visual impact.
 - **Appearance** — adjust blur, softness, opacity, glow, and intensity.
 - **Texture and patterns** — explore grain, noise, repeating patterns, and geometric details.
 - **Composition** — combine techniques to create an original result.
 
 The preview should respond immediately to changes so users can learn by experimenting.
 
-## Easy to Use, With Room to Explore
+## Desktop-First Experience
 
-Gradient Lab is for people who want creative control without first learning the technical language behind it.
+Gradient Lab is planned as an installable Windows desktop application. The first serious editor experience will be designed for desktop screens, mouse and keyboard input, and detailed creative controls.
 
-The experience should follow these principles:
+Mobile support is not part of the initial development scope. The project format should remain portable so users can move their work between computers using ordinary file transfer.
 
-1. **Visual-first** — let people work with what they see.
-2. **Understandable controls** — use clear names, short explanations, and sensible defaults.
-3. **Beginner-friendly** — make common adjustments easy to find and use.
-4. **Room for depth** — offer more detailed controls when someone wants them.
-5. **Immediate feedback** — show the effect of an adjustment in the preview.
-6. **Creative freedom** — templates are starting points, not restrictions.
+## Local-First and No Backend
 
-Technical details such as CSS properties, rendering methods, and export syntax should be handled by the Lab rather than required knowledge for the user.
+Gradient Lab is intended to work locally without a hosted backend.
 
-## Cross-Device Experience
+- No user accounts or sign-in are required.
+- No cloud database or cloud synchronization is planned.
+- Projects are saved and opened from the user's computer.
+- Core editing and export workflows should not require an internet connection.
+- Users should be able to back up and move projects using ordinary files.
 
-Gradient Lab is planned as a responsive web application that can be used on both laptops and mobile phones. The experience should adapt to the device instead of simply shrinking the desktop editor to fit a phone.
+The working project-file extension is **.glab**. Its versioned structure and whether it should be a JSON document or an archive containing JSON and assets will be decided during research.
 
-### Desktop workspace
+Local persistence technology is still under evaluation. A database is not assumed to be necessary; the simplest reliable file-based approach should be preferred unless real requirements justify more.
 
-The desktop experience is the full creative workspace. It should provide the complete editor, detailed layer management, advanced customization controls, experimentation tools, and export options.
+## Rendering and Export Research
 
-### Mobile workspace
+The rendering approach will be selected through practical experiments. Candidate browser-based graphics capabilities include CSS gradients, SVG filters, Canvas 2D, and WebGL2 inside the desktop application's WebView.
 
-The mobile experience is a convenient creation and prototyping workspace. Users should be able to explore templates, create gradient prototypes, adjust essential visual properties, and save their work while away from their laptop.
+No single rendering technology is assumed to handle every effect. The same editable project model should be able to produce supported output formats, while documenting effects that cannot be represented faithfully in a particular format.
 
-The mobile editor does not need to expose every advanced desktop control. Both experiences should work with the same underlying gradient project format so a mobile creation can be continued on desktop.
+Planned export targets include:
 
-The web application should be designed to be installable as a Progressive Web App (PWA), subject to the capabilities and limitations of supported browsers.
-
-## Data, Accounts, and Synchronization
-
-**Selected backend direction: Firebase.**
-
-Gradient Lab is planned to use:
-
-- **Firebase Authentication** for user accounts and sign-in.
-- **Cloud Firestore** for users' saved gradient projects, templates, experiments, and related structured data.
-- **Local persistence** so users can continue working with locally available projects when offline.
-- **Synchronization** to make saved work available across a user's signed-in devices when connectivity is available.
-
-The goal is for a user to start a gradient on a phone and continue refining the same project on a laptop. Local editing should not depend on a live cloud connection.
-
-Offline changes, simultaneous edits, and synchronization conflicts must be handled deliberately. The product should track project versions and provide appropriate recovery or conflict-handling behavior rather than silently losing a user's work.
-
-### Portable projects and backups
-
-Cloud synchronization should not be the only way users can move or protect their creations.
-
-Gradient Lab should provide a versioned, portable project format (working extension: `.glab`) that preserves the editable gradient recipe and any assets required by the project. Users should be able to export a project on one device and import it on another, including through ordinary file transfer such as USB.
-
-JSON backup and restore should also be supported. Exported PNG, SVG, and code files should be generated locally wherever practical.
-
-## Infrastructure and Cost Direction
-
-The initial infrastructure target is **Firebase's no-cost Spark plan**, staying within its published quotas and service restrictions.
-
-The product should be designed to avoid unnecessary cloud usage:
-
-- Render and customize gradients on the user's device.
-- Store compact, structured gradient recipes rather than uploading every preview as an image.
-- Keep temporary drafts and working data locally where appropriate.
-- Synchronize user projects through Firestore when online.
-- Allow portable project export and backup.
-
-The Spark plan has usage limits and is not an unlimited or permanent free-service guarantee. Usage should be monitored, and the application must not assume paid services are available. Any future move to a paid plan must be evaluated against actual product needs and operating costs.
-
-## Export Goals
-
-A gradient should be useful beyond the editor. The planned export direction is:
-
-1. **Tailwind CSS** — the first code-export target.
+1. Tailwind CSS
 2. CSS
 3. CSS Variables
 4. CSS-in-JS
 5. SVG
 6. PNG
 
-The same composition should be reusable across supported output formats wherever the underlying rendering technique allows it. Some effects may have format-specific limitations, which should be clearly communicated during export.
+The exact export order and compatibility rules will be refined during research.
 
 ## Research-Led Development
 
@@ -144,13 +100,14 @@ Gradient Lab will be developed through exploration and practical experiments.
 
 We will investigate:
 
+- Which desktop application framework best fits a Windows-first creative tool.
 - How different gradient styles are constructed.
-- Which visual effects can be combined.
+- Which rendering capabilities are suitable for each effect.
 - How layers, blending, blur, color, and texture affect a result.
-- Which browser capabilities and rendering techniques are suitable.
-- Which free and open-source libraries or resources are useful.
-- How to turn technical capabilities into simple, meaningful user controls.
-- How to keep the editor responsive and reliable across desktop and mobile devices.
+- How to represent an editable gradient independently of its renderer.
+- How to save, reopen, version, and export projects reliably.
+- How to keep the editor responsive on the target hardware.
+- Which free and open-source libraries or resources are genuinely useful.
 
 Examples and references will help us learn, but the goal is to develop our own understanding, workflows, templates, and original compositions.
 
@@ -158,14 +115,22 @@ AI tools may assist with research, explanation, coding, and experimentation. How
 
 ## Current Status
 
-**Research and product definition.**
+**Planning and research.**
 
-The product direction is established: a visual-first, cross-device web application with Firebase as the selected backend direction. We are currently exploring gradient styles, studying how they are built, testing visual effects, and identifying the tools and capabilities the Lab should provide.
+The agreed product constraints are:
 
-The detailed interface, rendering approach, local data model, synchronization behavior, and final technology choices will be shaped and validated during development. Planned capabilities described in this README are not claims that those features have already been implemented.
+- Windows desktop first.
+- Installable desktop application.
+- Local-first operation.
+- No hosted backend, accounts, or cloud synchronization.
+- No implementation work until the technical and product research is sufficiently validated.
+
+Tauri 2 with a React and TypeScript frontend is the leading technology candidate, not yet a final implementation commitment. The rendering engine, project format, local persistence details, and final editor experience remain under research.
+
+See the [research plan](docs/planning/RESEARCH-PLAN.md), [technology research](docs/research/TECHNOLOGY-RESEARCH.md), and [platform decision record](docs/decisions/ADR-001-DESKTOP-AND-LOCAL-FIRST.md).
 
 ## Guiding Idea
 
 **Technical power behind the scenes. Creative control in the user's hands.**
 
-Gradient Lab should make gradient creation understandable and approachable — so people can create the gradients they imagine, continue their work across devices, and keep control of their creative projects.
+Gradient Lab should make gradient creation understandable and approachable — so people can create the gradients they imagine and keep control of their creative projects.
