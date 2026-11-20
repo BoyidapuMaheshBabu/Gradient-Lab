@@ -14,21 +14,20 @@ The goal is not to hide creative control. It is to make that control approachabl
 
 ## Product Vision
 
-Gradient Lab is intended to provide three ways to create:
+Gradient Lab is intended to offer two ways to begin creating:
 
-- **Start with a template** — choose a visual style and customize its colors, layers, effects, and composition.
-- **Create from scratch** — begin with a blank canvas and build a gradient using visual tools.
-- **Experiment and explore** — compare settings, try variations, and discover new combinations.
+- **Explore gradient presets** — choose a visual family, browse multiple pre-built compositions, inspect how a selected composition is constructed, and open it as an editable project.
+- **Start from scratch** — open a blank creative workspace and build an original composition using the available gradient techniques, layers, and effects.
 
-The result should be a live visual preview that users can refine, save, and export.
+Both paths lead to the same flexible editor. A preset is a starting point, not a locked editing mode.
 
 ## Gradient Creation
 
 The capabilities below describe the product direction. They are goals for the Lab, not a claim that every feature is already implemented.
 
-### Explore gradient styles and templates
+### Explore gradient families and presets
 
-The initial exploration includes visual families such as:
+The initial product direction includes eight visual families:
 
 - Aura
 - Mesh
@@ -39,9 +38,27 @@ The initial exploration includes visual families such as:
 - Glass
 - Flux
 
-These are starting points for research and template discovery, not a fixed or final classification. Gradient Lab may develop its own categories as we learn how different visual styles are constructed.
+Each family should contain a small curated collection of distinct, pre-built gradient compositions rather than a single generic example. The exact number of presets in each family will be decided through research and curation.
 
-Templates should be editable starting points, not locked designs. Users should be able to change their colors, composition, layers, and effects, then save their own versions.
+A preset should show more than its final appearance. Users should be able to inspect how it is constructed, including its editable layers and the techniques or effects that contribute to the result. The interface location and level of construction detail remain UX research questions.
+
+### Provisional preset complexity levels
+
+The initial version will explore three labels for organizing presets:
+
+- **Basic** — simpler compositions suited to straightforward visual needs.
+- **Medium** — more involved compositions with additional combinations or effects.
+- **Advanced** — more elaborate compositions for richer creative work.
+
+These labels describe the complexity and intended use of a starting composition, not the user's skill and not the limits of the editor. They are provisional for the initial version. Research may validate, refine, rename, expand, or replace the levels before implementation.
+
+### Presets are editable starting points
+
+Selecting a preset should open its complete composition in one shared editor. The preset's family or complexity label must not lock the user into that style.
+
+Users should be free to add, remove, duplicate, reorder, and adjust layers; experiment with blend modes and effects; and combine techniques associated with different families. Starting layer counts and controls should come from research-backed presets, not hard limits.
+
+The editor should show controls relevant to the selected layer or element rather than displaying every possible control at once.
 
 ### Customize visually
 
@@ -127,7 +144,7 @@ The agreed product constraints are:
 
 Tauri 2 with a React and TypeScript frontend is the leading technology candidate, not yet a final implementation commitment. The rendering engine, project format, local persistence details, and final editor experience remain under research.
 
-See the [research plan](docs/planning/RESEARCH-PLAN.md), [technology research](docs/research/TECHNOLOGY-RESEARCH.md), and [platform decision record](docs/decisions/ADR-001-DESKTOP-AND-LOCAL-FIRST.md).
+See the [research plan](docs/planning/RESEARCH-PLAN.md), [technology research](docs/research/TECHNOLOGY-RESEARCH.md), [desktop and local-first decision record](docs/decisions/ADR-001-DESKTOP-AND-LOCAL-FIRST.md), and [preset and creation experience decision record](docs/decisions/ADR-002-PRESET-BASED-CREATION.md).
 
 ## Guiding Idea
 

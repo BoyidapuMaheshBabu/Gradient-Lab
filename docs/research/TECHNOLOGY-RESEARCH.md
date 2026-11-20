@@ -246,3 +246,38 @@ Primary references checked on **2026-11-21**:
 - MDN SVG turbulence: https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/feTurbulence
 - MDN Canvas API: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
 - MDN WebGL2: https://developer.mozilla.org/en-US/docs/Web/API/WebGL2RenderingContext
+
+
+## 10. Product implications: preset-based creation and one shared editor
+
+The current product direction proposes two entry paths:
+
+1. **Explore gradient presets:** browse a family, inspect a pre-built composition and its construction, then open it for editing.
+2. **Start from scratch:** begin with a blank composition.
+
+The eight initial visual families are Aura, Mesh, Nebula, Prism, Lattice, Grain, Glass, and Flux. Each family is expected to contain multiple distinct presets; exact counts are open research.
+
+### Provisional complexity labels
+
+The initial version will explore Basic, Medium, and Advanced labels for preset compositions. These labels describe the composition's complexity and intended use, not user skill and not available editing permissions. Research may refine or replace the levels before implementation.
+
+Do not model these labels as separate editor modes or feature gates.
+
+### Shared composition model
+
+A preset should be stored as an editable composition that can be loaded into the same editor used by Start from Scratch. Its original family and preset identity may be retained as metadata for discovery and attribution, but they must not restrict what users can do next.
+
+The project model should be able to represent a composition containing different kinds of layers and effects. A user should be able to add, remove, duplicate, reorder, or modify layers and combine techniques associated with different visual families.
+
+### Contextual controls
+
+Do not show every possible control for every selected item. Research should determine which properties are meaningful for each layer or effect, and the editor should present controls in context. This is a UX and data-model requirement to investigate, not a finalized panel design.
+
+### Architecture questions to validate
+
+- How should a preset recipe describe its layers, parameters, renderer types, and defaults?
+- Can the preset's recipe be edited without retaining a locked family mode?
+- How should the editor support mixed compositions using CSS, SVG, Canvas, or another renderer?
+- What construction information should be available in the preset browser versus the full editor?
+- How should complexity labels be assigned consistently across families?
+- How can presets evolve without breaking saved user projects?

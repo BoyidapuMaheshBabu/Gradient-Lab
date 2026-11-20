@@ -114,6 +114,27 @@ These are recommendations to validate, not all final decisions:
 
 **Exit condition:** the main editor workflow is understandable without implementation-level detail; core interactions and layout responsibilities are documented.
 
+### F — Product taxonomy and preset library
+
+**Questions**
+- What makes each of the eight proposed visual families recognizable?
+- What representative compositions should each family offer?
+- What information should users see when inspecting how a preset is built?
+- Are Basic, Medium, and Advanced useful labels for preset complexity and intended use?
+- What criteria should distinguish those levels without relying only on layer count?
+- Do the three levels fit every family, or does research reveal a better taxonomy?
+- How can users move beyond a preset's original family without the editor becoming confusing?
+
+**Research and evidence**
+- Collect and analyze representative examples for Aura, Mesh, Nebula, Prism, Lattice, Grain, Glass, and Flux.
+- Document each example's visual characteristics, construction techniques, layers, effects, and possible controls.
+- Curate multiple distinct presets per family; determine practical counts through curation rather than imposing a fixed number now.
+- Draft clear, evidence-based criteria for Basic, Medium, and Advanced.
+- Test whether users can understand a preset's preview, complexity label, and construction breakdown.
+- Test the journey from selecting a preset to opening and editing its complete composition.
+
+**Exit condition:** the initial family/preset organization is supported by researched examples; preset construction can be inspected; complexity labels have clear criteria or are revised; the shared editor model preserves unrestricted editing freedom.
+
 ### E — Export, performance, and quality
 
 **Questions**
@@ -137,8 +158,9 @@ These are recommendations to validate, not all final decisions:
 2. **Rendering experiments** — test CSS, SVG, Canvas 2D, and WebGL2 against real Gradient Lab styles.
 3. **Project model** — define editable data and a portable local file.
 4. **Editor UX** — define the desktop workspace around the capabilities we proved.
-5. **Export and performance** — validate outputs and realistic device performance.
-6. **Implementation plan** — convert validated decisions into small, testable development phases.
+5. **Preset and product taxonomy** — research the eight families, preset collections, construction breakdowns, and complexity labels.
+6. **Export and performance** — validate outputs and realistic device performance.
+7. **Implementation plan** — convert validated decisions into small, testable development phases.
 
 The order can adapt when experiments reveal dependencies. Do not force a technology choice simply because it appears in this initial plan.
 
@@ -160,7 +182,10 @@ The order can adapt when experiments reveal dependencies. Do not force a technol
 - Validate graphics performance on the target Windows laptop.
 - Decide the .glab container format.
 - Decide whether project history and autosave require a database.
-- Decide the minimum useful first set of gradient styles and export targets.
+- Define the researched characteristics and initial preset collection for each of the eight gradient families.
+- Validate or revise the provisional Basic, Medium, and Advanced preset labels.
+- Decide how much construction detail users should see before opening a preset.
+- Decide the minimum useful export targets.
 
 ## 8. Definition of research completion
 
